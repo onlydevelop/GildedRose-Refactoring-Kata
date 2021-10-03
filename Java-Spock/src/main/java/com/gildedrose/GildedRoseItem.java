@@ -12,79 +12,41 @@ public class GildedRoseItem extends Item {
         this.quality = quality;
     }
 
-    public void updateQuality() {
-        if (name.equals("Aged Brie")) {
-            if (this.isQualityWithinLimit()) {
-                this.increaseQuality();
-            }
-            this.decreaseSellin();
-            if (isSellinNegative()) {
-                if (this.isQualityWithinLimit()) {
-                    this.increaseQuality();
-                }
-            }
-        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            if (this.isQualityWithinLimit()) {
-                this.increaseQuality();
-
-                if (this.isQualityWithinLimit()) {
-                    if (this.isSellInTenOrLess()) {
-                        this.increaseQuality();
-                    }
-                    if (this.isSellInFiveOrLess()) {
-                        this.increaseQuality();
-                    }
-                }
-            }
-            this.decreaseSellin();
-            if (this.isSellinNegative()) {
-                quality = 0;
-            }
-        } else if (name.equals("Sulfuras, Hand of Ragnaros")) {
-            // Do nothing
-        } else {
-            if (this.isQualityPositive()) {
+    public GildedRoseItem updateQuality() {
+        if (this.isQualityPositive()) {
+            this.decreaseQuality();
+        }
+        this.decreaseSellin();
+        if (this.isSellinNegative()) {
+            if (isQualityPositive()) {
                 this.decreaseQuality();
             }
-            this.decreaseSellin();
-            if (this.isSellinNegative()) {
-                if (isQualityPositive()) {
-                    this.decreaseQuality();
-                }
-            }
         }
+        return this;
     }
 
-    private void increaseQuality() {
-        quality = quality + 1;
+    void increaseQuality() {
+        this.quality = this.quality + 1;
     }
 
-    private void decreaseQuality() {
-        quality = quality - 1;
+    void decreaseQuality() {
+        this.quality = this.quality - 1;
     }
 
-    private void decreaseSellin() {
-        sellIn = sellIn - 1;
+    void decreaseSellin() {
+        this.sellIn = this.sellIn - 1;
     }
 
-    private boolean isQualityWithinLimit() {
+    boolean isQualityWithinLimit() {
         int MAX_QUAILTY = 50;
-        return quality < MAX_QUAILTY;
+        return this.quality < MAX_QUAILTY;
     }
 
-    private boolean isSellinNegative() {
-        return sellIn < 0;
+    boolean isSellinNegative() {
+        return this.sellIn < 0;
     }
 
-    private boolean isQualityPositive() {
-        return quality > 0;
-    }
-
-    private boolean isSellInTenOrLess() {
-        return sellIn < 11;
-    }
-
-    private boolean isSellInFiveOrLess() {
-        return sellIn < 6;
+    boolean isQualityPositive() {
+        return this.quality > 0;
     }
 }
