@@ -41,8 +41,10 @@ class GildedRose {
             if (items[i].sellIn < 0) {
                 if (!items[i].name.equals("Aged Brie")) {
                     if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (items[i].quality > 0) {
-                            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+                        if (items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+                            // Do nothing
+                        } else {
+                            if (items[i].quality > 0) {
                                 this.decreaseQuality(items, i);
                             }
                         }
