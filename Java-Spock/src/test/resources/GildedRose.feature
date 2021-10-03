@@ -1,5 +1,5 @@
 Feature: Gilded Rose quality
-  I want to know if the quality is updated properlys
+  I want to know if the quality is updated properly
 
   Scenario: Sellin and Quality decreasing
     Given for "+5 Dexterity Vest" initial sellin is 20 and quality is 30
@@ -62,3 +62,8 @@ Feature: Gilded Rose quality
     Then I should get sellin as 0 and quality as 13
     When I update the quality
     Then I should get sellin as -1 and quality as 0
+
+  Scenario: "Conjured" items degrade in Quality twice as fast as normal items
+    Given for "Conjured Mana Cake" initial sellin is 10 and quality is 10
+    When I update the quality
+    Then I should get sellin as 9 and quality as 8

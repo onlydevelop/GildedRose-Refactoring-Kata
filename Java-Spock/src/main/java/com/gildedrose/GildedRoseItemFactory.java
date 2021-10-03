@@ -8,7 +8,9 @@ public class GildedRoseItemFactory {
             return new BackstagePassesItem(item);
         } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
             return new SulfurusItem(item);
-        } else {
+        } else if (item.name.equals("Conjured Mana Cake")) {
+            return new ConjuredItem(item);
+        }else {
             return new GildedRoseItem(item);
         }
     }
