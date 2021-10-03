@@ -8,13 +8,13 @@ import io.cucumber.java.en.When;
 
 public class StepDefinitions {
     private String savedName;
-    private Item[] items = new Item[1];
+    private GildedRoseItem[] items = new GildedRoseItem[1];
     private GildedRose app;
 
     @Given("for {string} initial sellin is {int} and quality is {int}")
     public void initial_sellin_is_and_quality_is(String name, int sellin, int quality) {
         savedName = name;
-        items[0] = new Item(name, sellin, quality);
+        items[0] = new GildedRoseItem(name, sellin, quality);
         app = new GildedRose(items);
     }
 
