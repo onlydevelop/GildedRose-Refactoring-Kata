@@ -1,15 +1,8 @@
 package com.gildedrose;
 
 public class GildedRoseItem extends Item {
-    public String name;
-    public int sellIn;
-    public int quality;
-
-    public GildedRoseItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
+    public GildedRoseItem(Item item) {
+        super(item.name, item.sellIn, item.quality);
     }
 
     public GildedRoseItem updateQuality() {

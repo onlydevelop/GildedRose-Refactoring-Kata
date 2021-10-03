@@ -1,15 +1,15 @@
 package com.gildedrose;
 
 public class GildedRoseItemFactory {
-    public static GildedRoseItem get(GildedRoseItem item) {
+    public static GildedRoseItem get(Item item) {
         if (item.name.equals("Aged Brie")) {
-            return new AgedBrieItem(item.name, item.sellIn, item.quality);
+            return new AgedBrieItem(item);
         } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            return new BackstagePassesItem(item.name, item.sellIn, item.quality);
+            return new BackstagePassesItem(item);
         } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            return new SulfurusItem(item.name, item.sellIn, item.quality);
+            return new SulfurusItem(item);
         } else {
-            return new GildedRoseItem(item.name, item.sellIn, item.quality);
+            return new GildedRoseItem(item);
         }
     }
 }

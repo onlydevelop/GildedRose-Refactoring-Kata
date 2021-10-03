@@ -1,8 +1,8 @@
 package com.gildedrose;
 
 public class BackstagePassesItem extends GildedRoseItem {
-    public BackstagePassesItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public BackstagePassesItem(Item item) {
+        super(item);
     }
 
     public BackstagePassesItem updateQuality() {
@@ -19,7 +19,7 @@ public class BackstagePassesItem extends GildedRoseItem {
         }
         this.decreaseSellin();
         if (this.isSellinNegative()) {
-            this.quality = this.quality - this.quality;
+            this.quality = 0;
         }
         return this;
     }
