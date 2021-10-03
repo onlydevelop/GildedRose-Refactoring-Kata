@@ -10,10 +10,8 @@ public class AgedBrieItem extends GildedRoseItem {
             increaseQuality();
         }
         this.decreaseSellin();
-        if (isSellinNegative()) {
-            if (this.isQualityWithinLimit()) {
-                this.increaseQuality();
-            }
+        if (isSellinNegative() && this.isQualityWithinLimit()) {
+            this.increaseQuality();
         }
         return this;
     }

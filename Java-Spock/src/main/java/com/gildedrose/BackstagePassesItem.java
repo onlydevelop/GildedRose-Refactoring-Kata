@@ -9,12 +9,7 @@ public class BackstagePassesItem extends GildedRoseItem {
         if (this.isQualityWithinLimit()) {
             this.increaseQuality();
             if (this.isQualityWithinLimit()) {
-                if (this.isSellInTenOrLess()) {
-                    this.increaseQuality();
-                }
-                if (this.isSellInFiveOrLess()) {
-                    this.increaseQuality();
-                }
+                increaseQualityOnSellIn();
             }
         }
         this.decreaseSellin();
@@ -22,6 +17,15 @@ public class BackstagePassesItem extends GildedRoseItem {
             this.quality = 0;
         }
         return this;
+    }
+
+    private void increaseQualityOnSellIn() {
+        if (this.isSellInTenOrLess()) {
+            this.increaseQuality();
+        }
+        if (this.isSellInFiveOrLess()) {
+            this.increaseQuality();
+        }
     }
 
     private boolean isSellInTenOrLess() {

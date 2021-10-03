@@ -10,10 +10,8 @@ public class GildedRoseItem extends Item {
             this.decreaseQuality();
         }
         this.decreaseSellin();
-        if (this.isSellinNegative()) {
-            if (isQualityPositive()) {
-                this.decreaseQuality();
-            }
+        if (this.isSellinNegative() && isQualityPositive()) {
+            this.decreaseQuality();
         }
         return this;
     }
