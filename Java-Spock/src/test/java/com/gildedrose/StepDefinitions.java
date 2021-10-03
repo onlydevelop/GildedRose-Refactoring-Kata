@@ -1,25 +1,32 @@
 package com.gildedrose;
 
+import static org.junit.Assert.*;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StepDefinitions {
-    @Given("initial sellin is {int} and quality is {int}")
-    public void initial_sellin_is_and_quality_is(int sellin, int quality) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    private String savedName;
+    private Item[] items = new Item[1];
+    private GildedRose app;
+
+    @Given("for {string} initial sellin is {int} and quality is {int}")
+    public void initial_sellin_is_and_quality_is(String name, int sellin, int quality) {
+        savedName = name;
+        items[0] = new Item(name, sellin, quality);
+        app = new GildedRose(items);
     }
 
     @When("I update the quality")
     public void i_update_the_quality() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        app.updateQuality();
     }
 
     @Then("I should get sellin as {int} and quality as {int}")
     public void i_should_get_sellin_as_and_quality_as(int sellin, int quality) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        assertEquals(savedName, app.items[0].name);
+        assertEquals(sellin, app.items[0].sellIn);
+        assertEquals(quality, app.items[0].quality);
     }
 }
