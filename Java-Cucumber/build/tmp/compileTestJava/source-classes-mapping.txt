@@ -1,0 +1,2 @@
+com/gildedrose/StepDefinitions.java
+ com.gildedrose.StepDefinitions

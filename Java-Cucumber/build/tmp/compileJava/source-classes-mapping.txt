@@ -1,0 +1,6 @@
+com/gildedrose/Item.java
+ com.gildedrose.Item
+com/gildedrose/TexttestFixture.java
+ com.gildedrose.TexttestFixture
+com/gildedrose/GildedRose.java
+ com.gildedrose.GildedRose
